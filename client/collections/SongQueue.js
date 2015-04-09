@@ -18,7 +18,13 @@ var SongQueue = Songs.extend({
     this.on('dequeue', function(songModel){
       this.remove(songModel);
     }, this);
+
+    this.on('enqueue', function(songModel){
+      console.log("SongModel");
+      this.unshift(songModel);
+    }, this);
   },
+
 
   playFirst: function(){
     if (this.length > 0){
