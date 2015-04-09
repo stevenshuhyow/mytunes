@@ -9,15 +9,22 @@ var SongQueue = Songs.extend({
     }, this);
 
     this.on('ended', function(){
-      console.log(this);
       this.shift();
+      if(this.length > 0){
+        this.playFirst();
+      }
     },this);
 
+    this.on('dequeue', function(songModel){
+      this.remove(songModel);
+    }, this);
   },
 
   playFirst: function(){
+    if (this.length > 0){
+      this.at(0).play();
+    }
   }
-
 
 
 
