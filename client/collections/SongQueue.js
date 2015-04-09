@@ -20,7 +20,7 @@ var SongQueue = Songs.extend({
     }, this);
 
     this.on('enqueue', function(songModel){
-      console.log("SongModel");
+//       console.log("SongModel");
       this.unshift(songModel);
     }, this);
   },
